@@ -1,20 +1,15 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
 
-module TimeAndExpenses
+require 'rails/all'
+
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(*Rails.groups)
+
+module Tr5wTimeAndExpenses
   class Application < Rails::Application
-    require 'rack/contrib'
-    config.middleware.use 'Rack::JSONP'
-
-    config.action_dispatch.session_store = :active_record_store
-    config.secret_token = "some secret phrase of at least 30 characters"
-    config.generators do |g|
-      g.test_framework :rspec
-    end
+    # Settings in config/environments/* take precedence over those specified here.
+    # Application configuration should go into files in config/initializers
+    # -- all .rb files in that directory are automatically loaded.
   end
 end
-
-# Include your application configuration below
-# ExceptionNotifier.exception_recipients = %w( jhubert@gmail.com )
-
-require 'factory_girl_rails'
-require 'rspec-rails'

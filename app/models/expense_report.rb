@@ -1,4 +1,4 @@
-class ExpenseReport < ActiveRecord::Base
+class ExpenseReport < ApplicationRecord
   belongs_to :user
   has_many :comments, :as => :subject
 end

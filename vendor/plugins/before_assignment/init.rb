@@ -1,1 +1,0 @@
-require 'before_assignment'

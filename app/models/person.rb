@@ -1,3 +1,3 @@
-class Person < ActiveRecord::Base
+class Person < ApplicationRecord
   has_many :contact_cards, :as => :contact
 end

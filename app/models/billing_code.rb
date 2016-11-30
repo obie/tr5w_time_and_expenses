@@ -1,4 +1,4 @@
-class BillingCode < ActiveRecord::Base
+class BillingCode < ApplicationRecord
   has_and_belongs_to_many :related,
     :join_table => 'related_billing_codes',
     :foreign_key => 'first_billing_code_id',

@@ -1,16 +1,15 @@
-class Timesheet < ActiveRecord::Base
+class Timesheet < ApplicationRecord
   belongs_to :approver,
+             -> { where('authorized_approver = ?', true).extending(CheckApproverExtension) },
              :class_name => 'User',
-             :foreign_key => 'approver_id',
-             :conditions => ['authorized_approver = ?', true],
-             :extend => CheckApproverExtension
+             :foreign_key => 'approver_id'
 
   belongs_to :user, :validate => true
 
-  has_many :billable_weeks, :include => [:billing_code]
+  has_many :billable_weeks, -> { includes(:billing_code) }
 
-  scope :draft, where(:submitted => false)
-  scope :latest, order('created_at desc').limit(1)
+  scope :draft, -> { where(:submitted => false) }
+  scope :latest, -> { order('created_at desc').limit(1) }
 
   def self.billable_hours_outstanding_for(user)
     user.timesheets.map(&:billable_hours_outstanding).sum

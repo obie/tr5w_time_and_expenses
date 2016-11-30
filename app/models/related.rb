@@ -1,4 +1,4 @@
-class Related < ActiveRecord::Base
+class Related < ApplicationRecord
   
   set_table_name :related_billing_codes
   

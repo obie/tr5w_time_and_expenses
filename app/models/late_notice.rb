@@ -1,2 +1,2 @@
-class LateNotice < ActionMailer::Base
+class LateNotice < ApplicationRecord
 end

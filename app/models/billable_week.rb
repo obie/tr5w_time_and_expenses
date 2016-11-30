@@ -1,4 +1,4 @@
-class BillableWeek < ActiveRecord::Base
+class BillableWeek < ApplicationRecord
   belongs_to :client
   belongs_to :billing_code
   belongs_to :timesheet

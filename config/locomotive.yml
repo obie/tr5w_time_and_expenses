@@ -1,6 +1,0 @@
----
-mode: development
-runs_at_launch: 0
-identifier: ecards
-port: 3011
-bundle: /Applications/Locomotive2/Bundles/rails112rmagick_x86.locobundle

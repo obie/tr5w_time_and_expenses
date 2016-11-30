@@ -1,4 +1,4 @@
-class Team < ActiveRecord::Base
+class Team < ApplicationRecord
   has_many :positions
   has_many :players, :through => :positions
   
