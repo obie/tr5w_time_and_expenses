@@ -1,0 +1,13 @@
+<p>
+  <b>Code:</b>
+  <%=h @billing_code.code %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @billing_code.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_client_billing_code_path(@client, @billing_code) %> |
+<%= link_to 'Back', client_billing_codes_path(@client) %>

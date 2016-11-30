@@ -1,0 +1,34 @@
+- content_for :head do
+  = javascript_include_tag 'clients.js'
+
+%h1 Listing clients
+
+%table#clients_list
+  %tr
+
+  - if (1..4).include? Date.today.wday # Sun - Thu
+    %th
+    %th Name
+    %th Code
+    %th Spend
+    %th Draft Timesheets
+    - for client in @clients
+      = render :partial => "client_list", :locals => {:client => client}
+  - else
+    %th Day
+    %th Name
+    %th Code
+    %th Spend
+    %th Draft Timesheets
+    - for wday in (Date.today.wday..6).to_a + (0...Date.today.wday).to_a
+      %tr
+        %td= Date::DAYNAMES[wday]
+        - for client in Client.by_hottest_spend_day.where(:hottest_spend_day => wday)
+          = render :partial => "client_list", :locals => {:client => client}
+
+%br
+= link_to 'New client', new_client_path
+
+%br
+= link_to 'Update draft timesheets count', counts_clients_path, :remote => true, 'data-type' => :jsonp, :id => 'update_draft_timesheets'
+-# = link_to 'Update draft timesheets count', counts_clients_path, :remote => true, 'data-type' => :json, :id => 'update_draft_timesheets'
