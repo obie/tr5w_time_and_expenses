@@ -40,6 +40,11 @@ class ImportLegacySchema < ActiveRecord::Migration[5.0]
       t.timestamps
     end
 
+    create_table :related_billing_codes, id: false do |t|
+      t.integer :first_billing_code_id,  :null => false
+      t.integer :second_billing_code_id, :null => false
+    end
+
     create_table :businesses do |t|
       t.string :name
       t.timestamps

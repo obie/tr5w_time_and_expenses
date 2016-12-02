@@ -132,6 +132,11 @@ ActiveRecord::Schema.define(version: 20161130204015) do
     t.index ["team_id"], name: "index_positions_on_team_id", using: :btree
   end
 
+  create_table "related_billing_codes", id: false, force: :cascade do |t|
+    t.integer "first_billing_code_id",  null: false
+    t.integer "second_billing_code_id", null: false
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.string   "session_id"
     t.text     "data"
