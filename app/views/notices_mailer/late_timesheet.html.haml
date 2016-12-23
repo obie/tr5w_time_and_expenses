@@ -1,0 +1,9 @@
+%p Dear #{@recipient.name},
+
+%p Your timesheet for the week of #{@week_of.strftime("%m/%d")} is late, here's a photo depicting how you should feel about it.
+
+%p= image_tag attachments['shame.jpg'].url, alt: "Shame on you"
+
+%p Sincerely,
+
+%p T&E System

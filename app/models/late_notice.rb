@@ -1,2 +1,0 @@
-class LateNotice < ApplicationRecord
-end

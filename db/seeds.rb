@@ -8,7 +8,7 @@ admin = User.create!(:name => 'Admin',
                    :password => '1234', :password_confirmation => '1234',
                    :authorized_approver => true)
 user = User.create!(:name => 'Obie',
-                   :email => 'obie@tr3w.com',
+                   :email => 'obie@trxw.com',
                    :password => 'hashrocket', :password_confirmation => 'hashrocket',
                    :client => client,
                    :authorized_approver => true)
